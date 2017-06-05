@@ -16,7 +16,7 @@ def get_vips():
     buffer = StringIO()
     try:
         c = pycurl.Curl()
-        c.setopt(pycurl.URL, 'https://somedb.com/vipapi')
+        c.setopt(pycurl.URL, 'https://somedatabase.com/api')
         c.setopt(pycurl.VERBOSE, 0)
         c.setopt(pycurl.USERPWD, 'usern:passwd')
         c.setopt(c.WRITEDATA, buffer)
@@ -24,7 +24,7 @@ def get_vips():
         c.close
     except pycurl.error, error:
         errno, errstr = error
-        print  "Couldn't connect to fleetdb!!  error: ", errno, " ", errstr
+        print  "Couldn't connect to database server!!  error: ", errno, " ", errstr
         return
 
     vips = buffer.getvalue()
